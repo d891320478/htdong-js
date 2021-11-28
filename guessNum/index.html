@@ -14,6 +14,8 @@
     let guessSuccess = false;
 
     function guess() {
+        guessNum.value = "";
+        guessNum.focus();
         if (guess >= 10) {
             p1.textContent = "已经猜10次";
             p1.focus();
