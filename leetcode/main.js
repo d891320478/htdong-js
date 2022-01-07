@@ -1,13 +1,13 @@
-var rearrangeArray = function (nums) {
-    nums.sort(function (a, b) { return a - b; });
-    let n = nums.length;
-    let a = new Array(n);
-    let j = 0;
-    for (let i = 0; i < n; i += 2, ++j) {
-        a[i] = nums[j];
+var licenseKeyFormatting = function (s, k) {
+    s = s.replaceAll("-", "").toUpperCase();
+    let ans = "";
+    for (let i = s.length - 1; i >= 0;) {
+        for (let j = 0; j < k && i >= 0; ++j, --i) {
+            ans = s[i] + ans;
+        }
+        if (i > 0) {
+            ans = '-' + ans;
+        }
     }
-    for (let i = 1; i < n; i += 2, ++j) {
-        a[i] = nums[j];
-    }
-    return a;
+    return ans;
 };
