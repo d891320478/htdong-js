@@ -4,43 +4,8 @@
 <p id="p2" class="p2"></p>
 
 <script>
-    let randNum = Math.floor(Math.random() * 100) + 1;
-    let guessCnt = 0;
-
-    let p1 = document.getElementById("p1");
-    let p2 = document.getElementById("p2");
-    let guessNum = document.getElementById("guessNum");
-    let vp2 = "已经猜过：";
-    let guessSuccess = false;
-
     function guess() {
-        guessNum.value = "";
-        guessNum.focus();
-        if (guess >= 10) {
-            p1.textContent = "已经猜10次";
-            p1.focus();
-            return;
-        }
-        if (guessSuccess) {
-            p1.textContent = "猜对了";
-            p1.focus();
-            return;
-        }
-        guessCnt++;
-        let num = guessNum.value;
-        if (guessCnt == 1) {
-            p2.textContent = vp2 + num;
-        } else {
-            p2.textContent = p2.textContent + " " + num;
-        }
-        if (num == randNum) {
-            guessSuccess = true;
-            p1.textContent = "猜对了";
-            p1.focus();
-            return;
-        }
-        p1.textContent = num > randNum ? "大了" : "小了";
+        p1.textContent = encodeURIComponent("+");
         p1.focus();
-        p2.focus();
     }
 </script>
